@@ -281,13 +281,13 @@
         text-align: center;
     }
 </style>
-                        <div class="widget widget-new-products">
+                        <div class="widget widget-new-products" th:if="${newProducts.isEmpty() == false}">
                             <div class="widget-title">
                                 <h2>New Products</h2>
                             </div>
                             <div class="widget-products">
                                 <ul class="products-grid products-grid--max-5-col-widget">
-                                    <li class="item last">
+                                    <!--<li class="item last">
                                         <a href="http://dev.magento.loc/linen-blazer-585.html" title="Linen Blazer" class="product-image">
                                             <img src="http://dev.magento.loc/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/m/s/msj012t_2.jpg" alt="Linen Blazer" />
                                         </a>
@@ -472,19 +472,19 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li class="item last">
+                                    </li>-->
+                                    <li class="item last" th:each="prod : ${newProducts}">
                                         <a href="http://dev.magento.loc/lafayette-convertible-dress.html" title="Lafayette Convertible Dress" class="product-image">
                                             <img src="http://dev.magento.loc/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/w/s/wsd013t.jpg" alt="Lafayette Convertible Dress" />
                                         </a>
                                         <div class="product-info">
-                                            <h3 class="product-name"><a href="http://dev.magento.loc/lafayette-convertible-dress.html" title="Lafayette Convertible Dress">Lafayette Convertible Dress</a></h3>
+                                            <h3 class="product-name"><a href="http://dev.magento.loc/lafayette-convertible-dress.html" title="Lafayette Convertible Dress"><span th:text="${prod.name}">Product Name</span></a></h3>
 
 
 
                                             <div class="price-box">
                                                                 <span class="regular-price" id="product-price-425-widget-new-grid">
-                                            <span class="price">$340.00</span>                                    </span>
+                                            <span class="price" th:text="${prod.price}">$340.00</span>                                    </span>
 
                                             </div>
 
